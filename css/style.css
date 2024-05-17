@@ -146,3 +146,45 @@
     color: #6b7376;
     font-size: 20px;
 }
+
+/* contatti */
+.contacts{
+    height: calc(100% - 160px);
+}
+
+.card-c{
+    height: 75px;
+    display: flex;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.096);
+}
+
+.card-c:hover{
+    background-color: rgba(235, 235, 235, 0.397);
+}
+
+.contacts img{
+    width: 45px;
+    margin: 0 5px;
+    border-radius: 25px;
+}
+
+.name-pic .usernamemsg{
+    margin-left: 5px;
+    padding-bottom: 10px;
+    width: 70%;
+}
+
+.usernamemsg span{
+    color: #b6b9bb;
+    font-size: 14px
+}
+
+.card-c .msg-hour{
+    width: 25%;
+    text-align: end;
+    padding-right: 5px;
+    padding-bottom: 25px;
+    color: #b6b9bb;
+    font-size: 12px;
+}

@@ -24,7 +24,7 @@
                         <!-- user -->
                         <div class="user">
                             <div class="name-pic">
-                                <img src="./img/avatar_6.jpg" alt="user">
+                                <img src="./img/avatar_io.jpg" alt="user">
                                 <h4>Erminia</h4>
                             </div>
                             <!-- icone-->
@@ -53,14 +53,25 @@
                         <!-- barra di ricerca -->
                         <div class="bar">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input  type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
-                        <!-- Contatti --> 
-            
-           
+                        <!-- Contatti -->
+                        <div class="contacts">
+                            <!-- ciclo v for per lista contatti -->
+                            <div v-for="(item, i, array) in contacts" class="name-pic card-c" >
 
-
-                        
+                                <img :src="item.avatar" :alt="item.name">
+                                    <!-- username -->
+                                <div class="usernamemsg">
+                                    <h5>{{item.name}}</h5>
+                                    <span>{{item.messages[item.messages.length - 1].message}}</span>
+                                    <!-- orario -->
+                                </div>
+                                <div class="msg-hour">
+                                    <span>{{item.messages[item.messages.length - 1].date}}</span>
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
                     <!-- colonna destra -->
@@ -68,10 +79,10 @@
                         <!-- user -->
                         <div class="user">
                             <div class="name-pic">
-                                <img src="./img/avatar_2.jpg" alt="user">
+                                <img src="./img/avatar_1.jpg" alt="user">
                                 <div>
                                     <h5 class="p-0 m-0">Francesco</h5>
-                                    <span>Ultimo accesso oggi alle:</span>
+                                    <span>Ultimo accesso oggi alle:12:00</span>
                                 </div>
                             </div>
                             <!-- icone -->
@@ -89,14 +100,14 @@
                         </div>
                         <!-- chat -->
                         <div class="chat">
-                            
+
                         </div>
-            
+
                         <!-- Your chat -->
                         <div class="write bar">
-            
+
                             <a href="#">
-            
+
                                 <i class="fa-regular fa-face-smile"></i>
                             </a>
                             <input type="text" placeholder=" Scrivi un messaggio">
@@ -105,7 +116,7 @@
                             </a>
                         </div>
                     </section>
-                            
+
 
                     <!-- fine colonne -->
                 </div>
