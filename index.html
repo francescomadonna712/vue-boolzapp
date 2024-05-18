@@ -58,8 +58,10 @@
                         <!-- Contatti -->
                         <div class="contacts">
                             <!-- ciclo v for per lista contatti -->
-                            <div v-for="(item, i, array) in contacts" class="name-pic card-c" >
-
+                            <div v-for="(item, i, array) in contacts" class="name-pic card-c" 
+                            :key="i"
+                            @click="clickContact(i)"
+                            :class="[i === activeChat ? 'active' : '', item.visible === false ? 'no-display' : ''] ">
                                 <img :src="item.avatar" :alt="item.name">
                                     <!-- username -->
                                 <div class="usernamemsg">
@@ -78,12 +80,17 @@
                     <section class="col-8 right-part">
                         <!-- user -->
                         <div class="user">
-                            <div class="name-pic">
-                                <img src="./img/avatar_1.jpg" alt="user">
+                            <div 
+                            class="name-pic">
+            
+                                <img :src="contacts[activeChat].avatar" alt="contacts[activeChat].name">
+            
                                 <div>
-                                    <h5 class="p-0 m-0">Francesco</h5>
-                                    <span>Ultimo accesso oggi alle:12:00</span>
+                                    
+                                    <h4>{{contacts[activeChat].name}}</h4>
+                                    <span>Ultimo accesso oggi alle:12:00 </span>
                                 </div>
+            
                             </div>
                             <!-- icone -->
                             <div class="user-icons">
@@ -100,9 +107,24 @@
                         </div>
                         <!-- chat -->
                         <div class="chat">
-
+                            <div 
+                            class="msg-line"
+                            v-for="(item2, j) in contacts[activeChat].messages" 
+                            :key="j"
+                            :class="item2.status === 'sent' ? 'sent-position' : '' ">
+                                <div 
+                                class="chat-box"
+                                :class="item2.status === 'sent' ? 'sent-color' : 'received-color' ">
+            
+                                    <div class="msg-box">
+                                        <p>
+                                            {{item2.message}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
+             
                         <!-- Your chat -->
                         <div class="write bar">
 

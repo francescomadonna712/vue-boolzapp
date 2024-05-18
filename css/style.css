@@ -120,32 +120,6 @@
     border: 1px solid rgba(128, 128, 128, 0.199);
 }
 
-/* colonna di destra */
-.chat{
-    height: calc(100% - 140px);
-    overflow-y: scroll;
-    background-image:url(../img/mine.jpg);
-    display: flex;
-    flex-direction: column;
-    padding: 50px 100px 0px 100px;
-   
-}
-.write{
-    height: 70px;
-}
-
-.right-part .bar input{
-    width: 80%;
-    height: 55px;
-    border: 1px solid rgba(128, 128, 128, 0.199);
-    border-radius: 5px;
-}
-
-.fa-face-smile, .fa-microphone{
-    padding: 2rem;
-    color: #6b7376;
-    font-size: 20px;
-}
 
 /* contatti */
 .contacts{
@@ -188,3 +162,57 @@
     color: #b6b9bb;
     font-size: 12px;
 }
+
+/* colonna di destra */
+.chat{
+    height: calc(100% - 140px);
+    overflow-y: scroll;
+    background-image:url(../img/mine.jpg);
+    display: flex;
+    flex-direction: column;
+    padding: 50px 100px 0px 100px;
+   
+}
+.write{
+    height: 70px;
+}
+
+.right-part .bar input{
+    width: 80%;
+    height: 55px;
+    border: 1px solid rgba(128, 128, 128, 0.199);
+    border-radius: 5px;
+}
+
+.fa-face-smile, .fa-microphone{
+    padding: 2rem;
+    color: #6b7376;
+    font-size: 20px;
+}
+/* chat */
+.chat .msg-line{
+    width: 100%;
+    display: flex;
+    min-width: 400px;
+}
+
+.chat .chat-box{
+    width: 350px;
+    border-radius: 9px;
+    margin-bottom: 15px;
+    padding: 15px 10px 5px 10px;
+    font-size: 15px;
+}
+
+.sent-position{
+    justify-content: flex-end;
+}
+
+.sent-color{
+    background-color: #d5f9ba;
+}
+
+.received-color{
+    background-color: white;
+}
+
