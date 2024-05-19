@@ -46,24 +46,29 @@
                                 <i class="fa-solid fa-bell-slash"></i>
                             </div>
                             <div class="alert-text ">
-                                <h5>Ricevi notifiche di nuovi messaggi</h5>
+                                <h6>Ricevi notifiche di nuovi messaggi</h6>
                                 <a href="#">Attiva notifiche desktop</a>
                             </div>
                         </div>
                         <!-- barra di ricerca -->
                         <div class="bar">
+
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input 
+                            v-model="newSearch" 
+                            @keyup="findFriend" 
+                            type="text" 
+                            placeholder=" Cerca o inizia una nuova chat">
                         </div>
+                        
                         <!-- Contatti -->
                         <div class="contacts">
                             <!-- ciclo v for per lista contatti -->
-                            <div v-for="(item, i, array) in contacts" class="name-pic card-c" 
-                            :key="i"
-                            @click="clickContact(i)"
-                            :class="[i === activeChat ? 'active' : '', item.visible === false ? 'no-display' : ''] ">
+                            <div v-for="(item, i, array) in contacts" class="name-pic card-c" :key="i"
+                                @click="clickContact(i)"
+                                :class="[i === activeChat ? 'active' : '', item.visible === false ? 'no-display' : ''] ">
                                 <img :src="item.avatar" :alt="item.name">
-                                    <!-- username -->
+                                <!-- username -->
                                 <div class="usernamemsg">
                                     <h5>{{item.name}}</h5>
                                     <span>{{item.messages[item.messages.length - 1].message}}</span>
@@ -80,17 +85,16 @@
                     <section class="col-8 right-part">
                         <!-- user -->
                         <div class="user">
-                            <div 
-                            class="name-pic">
-            
+                            <div class="name-pic">
+
                                 <img :src="contacts[activeChat].avatar" alt="contacts[activeChat].name">
-            
+
                                 <div>
-                                    
+
                                     <h4>{{contacts[activeChat].name}}</h4>
                                     <span>Ultimo accesso oggi alle:12:00 </span>
                                 </div>
-            
+
                             </div>
                             <!-- icone -->
                             <div class="user-icons">
@@ -107,15 +111,11 @@
                         </div>
                         <!-- chat -->
                         <div class="chat">
-                            <div 
-                            class="msg-line"
-                            v-for="(item2, j) in contacts[activeChat].messages" 
-                            :key="j"
-                            :class="item2.status === 'sent' ? 'sent-position' : '' ">
-                                <div 
-                                class="chat-box"
-                                :class="item2.status === 'sent' ? 'sent-color' : 'received-color' ">
-            
+                            <div class="msg-line" v-for="(item2, j) in contacts[activeChat].messages" :key="j"
+                                :class="item2.status === 'sent' ? 'sent-position' : '' ">
+                                <div class="chat-box"
+                                    :class="item2.status === 'sent' ? 'sent-color' : 'received-color' ">
+
                                     <div class="msg-box">
                                         <p>
                                             {{item2.message}}
@@ -124,7 +124,7 @@
                                 </div>
                             </div>
                         </div>
-             
+
                         <!-- Your chat -->
                         <div class="write bar">
 
@@ -132,7 +132,8 @@
 
                                 <i class="fa-regular fa-face-smile"></i>
                             </a>
-                            <input type="text" placeholder=" Scrivi un messaggio">
+                            <input v-model="newMessage" @keyup.enter="addMessage" type="text"
+                                placeholder=" Scrivi un messaggio">
                             <a href="#">
                                 <i class="fa-solid fa-microphone"></i>
                             </a>

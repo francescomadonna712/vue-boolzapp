@@ -123,7 +123,8 @@
 
 /* contatti */
 .contacts{
-    height: calc(100% - 160px);
+    overflow-y: scroll;
+    height: calc(100% - 175px);
 }
 
 .card-c{
@@ -141,6 +142,9 @@
     width: 45px;
     margin: 0 5px;
     border-radius: 25px;
+}
+.name-pic.card-c.no-display {
+    display: none;
 }
 
 .name-pic .usernamemsg{
